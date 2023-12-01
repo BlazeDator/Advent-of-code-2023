@@ -71,7 +71,7 @@ int	main(void)
 		first = ft_first_digit(str);
 		last = ft_last_digit(str);
 		sum = sum + (first * 10 + last);
-		ft_printf("line: %s || first:%i last:%i\n", str, first, last);
+		// ft_printf("line: %s || first:%i last:%i\n", str, first, last);
 		free(str);
 		str = get_next_line(fd);
 	}
