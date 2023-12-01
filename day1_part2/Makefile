@@ -12,7 +12,7 @@ OBJS_DIR = objs/
 all: $(NAME)
 
 $(NAME): $(OBJS_DIR) $(LIBFT) $(OBJS)
-	cc $(CFLAGS)  -o $(NAME) $(OBJS) $(LIBFT) $(MINILIBX)
+	cc $(CFLAGS)  -o $(NAME) $(OBJS) $(LIBFT) 
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
