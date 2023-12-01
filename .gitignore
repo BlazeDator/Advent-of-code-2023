@@ -1,0 +1,7 @@
+**/objs/*.o
+**/libft/*.o
+**/libft/*.a
+**/advent
+**/*.swp
+**/srcs/*.swp
+**/headers/*.swp
