@@ -20,7 +20,7 @@ int	main(void)
 	str = get_next_line(fd);
 	while (str)
 	{
-		ft_printf("----------\n%s\n", str);
+		ft_printf("----------\n%s", str);
 		sets = ft_sets_of_dice(str);
 		sum += ft_check_sets(sets);
 		str = get_next_line(fd);
@@ -59,9 +59,6 @@ int	ft_check_sets(char **sets)
 	blue = 1;
 	while (sets[i])
 	{
-		ft_printf("set: %s", sets[i]);
-		if (sets[i + 1])
-			ft_printf("\n");
 		if (ft_min_cubes(sets[i], 0) > red)
 			red = ft_min_cubes(sets[i], 0);
 		if (ft_min_cubes(sets[i], 1) > green)
@@ -71,7 +68,7 @@ int	ft_check_sets(char **sets)
 		free(sets[i]);
 		i++;
 	}
-	ft_printf("\nminimums:\nred:   %i\ngreen: %i\nblue:  %i\n\n",
+	ft_printf("red:   %i\ngreen: %i\nblue:  %i\n\n",
 		red,
 		green,
 		blue);
