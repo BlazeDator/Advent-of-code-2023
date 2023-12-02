@@ -4,10 +4,12 @@
 #define GREEN_CUBES 13
 #define BLUE_CUBES 14
 
+char	**ft_sets_of_dice(char *str);
+
 int	main(void)
 {
 	char	*str;
-	char	**temp;
+	char	**sets;
 	int		fd;
 	int		id;
 	int		sum;
@@ -21,23 +23,31 @@ int	main(void)
 		i = 0;
 		ft_printf("%s", str);
 		id = ft_atoi(&str[5]);
-		temp = ft_split(str, ':');
-		free(str);
-		str = temp[1];
-		free(temp[0]);
-		free(temp);
-		temp = ft_split(str, ';');
-		free(str);
-		while (temp[i])
+		sets = ft_sets_of_dice(str);
+		while (sets[i])
 		{
-			ft_printf("id:  %i set: %i %s\n", id, i + 1, temp[i]);
-			free(temp[i]);
+			ft_printf("id:  %i set: %i %s\n", id, i + 1, sets[i]);
+			free(sets[i]);
 			i++;
 		}
-		free(temp);
+		free(sets);
 		str = get_next_line(fd);
 	}
 	ft_printf("The sum of possible games ids is %i\n", sum);
 	close(fd);
 	return (0);
+}
+
+char	**ft_sets_of_dice(char *str)
+{
+	char	**temp;
+
+	temp = ft_split(str, ':');
+	free(str);
+	str = temp[1];
+	free(temp[0]);
+	free(temp);
+	temp = ft_split(str, ';');
+	free(str);
+	return (temp);
 }
